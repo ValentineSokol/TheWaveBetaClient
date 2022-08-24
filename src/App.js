@@ -14,17 +14,7 @@ import queryParamsChanged from './redux/actions/misc';
 const App = class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      displayLangModal: true,
-    };
-  }
-
-  setStartLanguage() {
-    const storedLanguage = localStorage.getItem('language');
-    if (storedLanguage) return this.props.setStartLanguage(storedLanguage);
-    const inferredLanguage = getBrowserLanguage();
-    this.props.setStartLanguage(inferredLanguage);
-    this.setState({ displayLangModal: true });
+    this.state = {};
   }
 
   async componentDidMount() {
@@ -32,7 +22,7 @@ const App = class App extends React.Component {
     this.props.checkLogin();
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     const { wsMessage } = this.props;
     if (prevProps.wsMessage === wsMessage) return;
     if (wsMessage.type === 'message') {
@@ -48,6 +38,13 @@ const App = class App extends React.Component {
       const message = `${wsMessage.payload.author.username} sent you a message.`;
       this.props.createNotification(message, 'mail');
     }
+  }
+
+  setStartLanguage() {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) return this.props.setStartLanguage(storedLanguage);
+    const inferredLanguage = getBrowserLanguage();
+    return this.props.setStartLanguage(inferredLanguage);
   }
 
   render() {

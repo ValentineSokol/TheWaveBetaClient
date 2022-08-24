@@ -7,24 +7,28 @@ const loadersSlice = createSlice({
   initialState: { activeRequests: [], failedRequests: [] },
   extraReducers: (builder) => {
     const thunksToWatch = { ...chatApi, ...api };
-    for (const key in thunksToWatch) {
-      const thunk = thunksToWatch[key];
+    const thunksKeys = Object.keys(thunksToWatch);
+    thunksKeys.forEach((thunkKey) => {
+      const thunk = thunksToWatch[thunkKey];
       builder.addCase(thunk.pending, (state) => {
-        state.failedRequests = state.failedRequests.filter((key) => key !== thunk.rejected.toString());
+        state.failedRequests = state.failedRequests
+          .filter((key) => key !== thunk.rejected.toString());
         const requestKey = thunk.pending.toString();
-        if (state.activeRequests.includes(requestKey)) return state;
-        state.activeRequests.push(requestKey);
+        if (!state.activeRequests.includes(requestKey)) {
+          state.activeRequests.push(requestKey);
+        }
       });
-      builder.addCase(thunk.rejected, (state, { payload }) => {
+      builder.addCase(thunk.rejected, (state) => {
         const errorKey = thunk.rejected.toString();
         state.failedRequests.push(errorKey);
-        state.activeRequests = state.activeRequests.filter((key) => key !== thunk.pending.toString());
-        console.error(payload);
+        state.activeRequests = state.activeRequests
+          .filter((key) => key !== thunk.pending.toString());
       });
       builder.addCase(thunk.fulfilled, (state) => {
-        state.activeRequests = state.activeRequests.filter((key) => key !== thunk.pending.toString());
+        state.activeRequests = state.activeRequests
+          .filter((key) => key !== thunk.pending.toString());
       });
-    }
+    });
   },
 });
 

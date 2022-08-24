@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-import LandingPage from '../landing/LandingPage';
+import LandingPage from '../LandingPage/LandingPage';
 import Profile from '../Profile/Profile';
-import ChatWindow from '../chat/ChatWindow/index';
+import ChatWindow from '../chat/ChatWindow';
 import Settings from '../Profile/Settings';
 import QueryParser from '../QueryParser';
 import RegisterForm from '../auth/RegisterForm';

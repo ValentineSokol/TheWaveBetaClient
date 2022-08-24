@@ -28,15 +28,12 @@ function Notification({
   },
 }) {
   useEffect(() => {
-    try {
-      if (!soundEnabled) return;
-      const sound = sounds[severity];
-      if (!sound) return;
+    if (!soundEnabled) return;
+    const sound = sounds[severity];
+    if (!sound) return;
 
-      const soundElement = new Audio(sound);
-      soundElement.play();
-    } catch (err) {
-    }
+    const soundElement = new Audio(sound);
+    soundElement.play();
   }, [severity, soundEnabled]);
   return (
     <CSSTransition

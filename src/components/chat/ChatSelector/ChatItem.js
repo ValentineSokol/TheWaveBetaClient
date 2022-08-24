@@ -5,7 +5,7 @@ import { getSelectedChatroomId } from '../../../redux/ChatSlice/selectors';
 import { actions } from '../../../redux/ChatSlice';
 import formatChatroomForDisplay from '../../../utils/formatChatroomForDisplay';
 
-export default function ({ chatroom }) {
+export default function ChatItem({ chatroom }) {
   const selectedChatroomId = useSelector(getSelectedChatroomId);
   const loggedInUser = useSelector((state) => state.global.user);
   const isActive = Number(chatroom.id) === Number(selectedChatroomId);
@@ -19,7 +19,7 @@ export default function ({ chatroom }) {
       <div className={wrapperClassNames}>
         <Avatar url={avatarUrl} />
         <div className="ChatNameMessage">
-          <span className="ChatName" />
+          <span className="ChatName">{name}</span>
           {
                         lastMessage
                         && (

@@ -40,7 +40,7 @@ function Profile({ dispatch, loadedUser, loggedInUser }) {
     !user ? null
       : (
         <div className="ProfileContainer">
-          <ChangeAvatarModal onClose={(_) => setIsChangingAvatar(false)} isOpen={isChangingAvatar} />
+          <ChangeAvatarModal onClose={() => setIsChangingAvatar(false)} isOpen={isChangingAvatar} />
           <section>
             <Card classes="AvatarCard">
               <div className="ProfileAvatar">

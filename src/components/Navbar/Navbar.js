@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import NavigationLink from '../reusable/UIKit/NavigationLink/NavigationLink';
 import { logout } from '../../redux/actions/api';
 import { actions as preferencesAPI } from '../../redux/PreferencesSlice';

@@ -34,7 +34,7 @@ class ChangeAvatarModal extends React.Component {
     this.onClose();
   };
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (!prevProps.userUpdated && this.props.userUpdated) {
       this.props.createNotification('Your avatar has been updated!', 'success');
     }

@@ -25,7 +25,7 @@ class QueryParser extends React.PureComponent {
     this.props.queryParamsChanged(this.parseQuery());
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (prevProps.location === this.props.location) return;
     this.props.queryParamsChanged(this.parseQuery());
   }
