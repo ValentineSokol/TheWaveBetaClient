@@ -9,6 +9,8 @@ package-lock.json
 /coverage
 /build
 /.idea
+/cypress-visual-screenshots/diff
+/cypress-visual-screenshots/comparison
 
 
 # misc
