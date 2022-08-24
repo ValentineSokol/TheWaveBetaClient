@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const Footer = () => {
-    const currentYear = new Date().getFullYear();
-    return (
+function Footer() {
+  const currentYear = new Date().getFullYear();
+  return (
     <footer>
-        © Vallion, Shenkerina 2018-{currentYear}
+      © Vallion, Shenkerina 2018-
+      {currentYear}
     </footer>
-    );
+  );
 }
 export default Footer;

@@ -1,19 +1,21 @@
 import React from 'react';
-import Typed from "../../../Typed";
-import Heading from "../Heading/Heading";
+import Typed from '../../../Typed';
+import Heading from '../Heading/Heading';
 
-const TypedHeading = ({ headingStrings, size, loop }) => (
+function TypedHeading({ headingStrings, size, loop }) {
+  return (
     <Heading size={size}>
-        {
-            headingStrings?
-            <Typed strings={headingStrings} loop={loop}/>
-            :
-            null
+      {
+            headingStrings
+              ? <Typed strings={headingStrings} loop={loop} />
+              : null
 
         }
-    </Heading> );
-TypedHeading.defaultProps = {
-    size: '1',
-    loop: false
+    </Heading>
+  );
 }
+TypedHeading.defaultProps = {
+  size: '1',
+  loop: false,
+};
 export default TypedHeading;

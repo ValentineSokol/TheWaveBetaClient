@@ -1,13 +1,17 @@
-import React from "react";
+import React from 'react';
 
 import './Card.scss';
-import TypedHeading from "../../Headings/TypedHeading/TypedHeading";
-import classNames from "classnames";
+import classNames from 'classnames';
+import TypedHeading from '../../Headings/TypedHeading/TypedHeading';
 
-const Card = ({ children, headingStrings, width, padding, classes = '' }) => (
-    <div style={{ width, padding }} className={classNames('Card' , { [classes]: classes })}>
-        { headingStrings && <TypedHeading headingStrings={headingStrings} /> }
-        {children}
+function Card({
+  children, headingStrings, width, padding, classes = '',
+}) {
+  return (
+    <div style={{ width, padding }} className={classNames('Card', { [classes]: classes })}>
+      { headingStrings && <TypedHeading headingStrings={headingStrings} /> }
+      {children}
     </div>
-)
+  );
+}
 export default Card;

@@ -1,3 +1,4 @@
-import {createAction} from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 
-export  const queryParamsChanged = createAction('queryParamsChanged', (queryParams) => ({ payload: queryParams }));
+const queryParamsChanged = createAction('queryParamsChanged', (queryParams) => ({ payload: queryParams }));
+export default queryParamsChanged;

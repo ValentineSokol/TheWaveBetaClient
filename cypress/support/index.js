@@ -1,3 +1,3 @@
 after(() => {
-    cy.task('generateReport')
+  cy.task('generateReport');
 });

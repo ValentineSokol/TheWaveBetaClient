@@ -1,15 +1,13 @@
-export default function (object) {
-    if (!object || !typeof object === 'object') throw new Error('The argument should be an object!');
-    const body = new FormData();
-    for (const key in object) {
-      const value = object[key];
-      if (Array.isArray(value)) {
-        for (const item of value) {
-          body.append(key, item);
-        }
-        continue;
-      }
-      body.append(key, object[key]);  
-    }
-    return body;
-}
+const objectToFormData = (object) => {
+  if (!object || !typeof object === 'object') throw new Error('The argument should be an object!');
+  const body = new FormData();
+  Object.keys(object).forEach((key) => {
+    const value = object[key];
+    if (Array.isArray(value)) {
+      value.forEach((item) => body.append(key, item));
+    } else body.append(key, object[key]);
+  });
+  return body;
+};
+
+export default objectToFormData;

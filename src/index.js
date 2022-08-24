@@ -1,23 +1,23 @@
 import React from 'react';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
+import dynamicImportPolyfill from 'dynamic-import-polyfill';
 import store from './redux/reducers/store';
 import App from './App';
-import dynamicImportPolyfill from 'dynamic-import-polyfill';
 
 // This needs to be done before any dynamic imports are used.
 dynamicImportPolyfill.initialize({
-    modulePath: '/public', // Defaults to '.'
-    importFunctionName: '$$import' // Defaults to '__import__'
+  modulePath: '/public', // Defaults to '.'
+  importFunctionName: '$$import', // Defaults to '__import__'
 });
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
