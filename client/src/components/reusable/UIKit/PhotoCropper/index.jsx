@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactCropper from 'react-cropper';
 import Button from '../Forms/Button';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'cropperjs/dist/cropper.css';
 
 export default class PhotoCropper extends React.Component {
