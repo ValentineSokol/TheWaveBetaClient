@@ -5,19 +5,15 @@ orbs:
   heroku: circleci/heroku@1.2
 jobs:
   build:
-    environment:
-      working_directory:  ~/client
     docker:
       - image: "cimg/base:stable"
     steps:
       - checkout
       - node/install:
           node-version: 16.0.0
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
-      - run: npm run lint
-      - run: npm test
+      - run: cd client && npm install
+      - run: cd client && npm run lint
+      - run: cd client && npm test
 workflows:
   deploy:
     jobs:
