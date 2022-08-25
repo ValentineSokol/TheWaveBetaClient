@@ -13,7 +13,7 @@ jobs:
           node-version: 16.0.0
       - node/install-packages:
           cache-path: ~/project/node_modules
-          override-ci-command: npm install --omit=dev
+          override-ci-command: npm install
       - run: npm run lint
       - run: npm test
 workflows:
