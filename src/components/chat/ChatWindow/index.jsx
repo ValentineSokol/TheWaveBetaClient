@@ -93,16 +93,19 @@ class ChatWindow extends Component {
     const { sendMessage, selectedChatroomId } = this.props;
     if (!message?.trim()) return;
     sendMessage({ chatroomId: selectedChatroomId, text: message });
+    this.setState({ message: '' });
   };
 
   onEnterPress = (e) => {
     if (e.key === 'Shift') this.shiftPressed = true;
     if (e.key === 'Enter' && !this.shiftPressed) {
+      e.preventDefault();
       this.sendMessage();
     }
   };
 
   onKeyUp = (e) => {
+    e.preventDefault();
     if (e.key === 'Shift') this.shiftPressed = false;
   };
 

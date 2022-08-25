@@ -14,11 +14,12 @@ const chatSlice = createSlice({
     builder.addCase(wsActions.messageReceived, (
       state,
       { payload: message },
+      // eslint-disable-next-line consistent-return
     ) => {
       if (message.type !== 'message') return state;
-      if (Number(message.payload.chatId) !== Number(state.selectedChatroomId)) return state;
-      if (!state?.selectedChatroomHistory?.messages) return state;
-      return state.selectedChatroomHistory.messages.push(message.payload);
+      if (Number(message.payload.chatId) === Number(state.selectedChatroomId)) {
+        state?.selectedChatroomHistory?.messages.push(message.payload);
+      }
     });
     builder.addCase(fetchUserChatrooms.fulfilled, (
       state,
