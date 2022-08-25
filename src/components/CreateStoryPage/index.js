@@ -8,7 +8,7 @@ class CreateStoryPage extends React.Component {
       <div className="CreateStoryPage">
         <Card>
           <LabeledInput
-            label="Name"
+            label="Story Name"
           />
         </Card>
       </div>
