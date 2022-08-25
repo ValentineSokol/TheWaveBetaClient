@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import createArraySubsets from '../../../../../utils/createArraySubsets';
 
@@ -14,13 +13,7 @@ const ItemGrid = ({
   );
 };
 
-ItemGrid.propTypes = {
-  children: PropTypes.node.isRequired,
-  itemsPerRow: PropTypes.number,
-  layout: PropTypes.oneOf(['row', 'column']),
-};
 ItemGrid.defaultProps = {
   itemsPerRow: 2,
-  layout: 'row',
 };
 export default ItemGrid;

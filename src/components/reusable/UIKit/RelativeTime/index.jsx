@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 
 import getRelativeTime from '../../../../utils/getRelativeTime';
 
@@ -25,12 +24,4 @@ function RelativeTime({ text, timestamp }) {
   );
 }
 
-RelativeTime.propTypes = {
-  text: PropTypes.string,
-  timestamp: PropTypes.string.isRequired,
-};
-
-RelativeTime.defaultProps = {
-  text: '',
-};
 export default RelativeTime;

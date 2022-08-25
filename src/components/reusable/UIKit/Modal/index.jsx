@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import Card from '../Cards/Card/Card';
@@ -44,18 +43,4 @@ function Modal({
   );
 }
 
-Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-  blockInteraction: PropTypes.bool,
-  classes: PropTypes.string,
-  heading: PropTypes.string,
-};
-
-Modal.defaultProps = {
-  blockInteraction: false,
-  classes: '',
-  heading: '',
-};
 export default Modal;

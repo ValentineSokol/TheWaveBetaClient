@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import TypedJs from 'typed.js';
 
 function Typed({
@@ -23,20 +22,4 @@ function Typed({
   return <span ref={typedContainerRef} className="TypedContainer" />;
 }
 
-Typed.propTypes = {
-  strings: PropTypes.arrayOf(PropTypes.string).isRequired,
-  typeSpeed: PropTypes.number,
-  backSpeed: PropTypes.number,
-  loop: PropTypes.bool,
-  loopCount: PropTypes.number,
-  showCursor: PropTypes.bool,
-};
-
-Typed.defaultProps = {
-  typeSpeed: 70,
-  backSpeed: 70,
-  loop: false,
-  loopCount: Infinity,
-  showCursor: true,
-};
 export default React.memo(Typed);

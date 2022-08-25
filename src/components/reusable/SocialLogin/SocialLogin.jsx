@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faVk } from '@fortawesome/free-brands-svg-icons';
 
@@ -16,11 +16,4 @@ function SocialLogin({ classNames }) {
   );
 }
 
-SocialLogin.propTypes = {
-  classNames: PropTypes.string,
-};
-
-SocialLogin.defaultProps = {
-  classNames: '',
-};
 export default SocialLogin;

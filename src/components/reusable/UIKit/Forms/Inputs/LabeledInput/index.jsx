@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './LabeledInput.scss';
 
 function LabeledInput({
@@ -26,23 +25,4 @@ function LabeledInput({
     </div>
   );
 }
-
-LabeledInput.propTypes = {
-  id: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  type: PropTypes.string,
-  inputClassName: PropTypes.string,
-  testId: PropTypes.string,
-};
-
-LabeledInput.defaultProps = {
-  required: false,
-  type: 'text',
-  inputClassName: '',
-  testId: '',
-};
 export default LabeledInput;

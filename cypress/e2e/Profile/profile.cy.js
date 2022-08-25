@@ -42,7 +42,7 @@ describe('Profile', () => {
         .then(() => {
           avatarImage.compareSnapshot('nsfw-image-protection');
           cy.getByTestId('ProfileAvatar').click();
-          avatarImage.compareSnapshot('nsfw-image-protection-revealed');
+          cy.getByTestId('ProfileAvatar').compareSnapshot('nsfw-image-protection-revealed');
         });
     });
   });

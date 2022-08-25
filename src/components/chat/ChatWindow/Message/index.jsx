@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -55,19 +54,4 @@ function Message({ message, displaySenderInfo }) {
   );
 }
 
-Message.propTypes = {
-  message: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
-    author: PropTypes.shape({
-      avatarUrl: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-      username: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-  displaySenderInfo: PropTypes.bool,
-};
-Message.defaultProps = {
-  displaySenderInfo: false,
-};
 export default React.memo(Message);

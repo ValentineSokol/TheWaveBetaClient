@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import * as PreferencesSlice from '../../../redux/PreferencesSlice';
 
@@ -23,7 +22,7 @@ export default (
   };
   const mapDispatch = {
     ...mapDispatchToProps,
-    loadTranslationForComponent: PreferencesSlice.loadTranslationForComponent(),
+    loadTranslationForComponent: PreferencesSlice.loadTranslationForComponent,
   };
 
   class TranslationProvider extends Component {
@@ -57,12 +56,5 @@ export default (
       );
     }
   }
-  TranslationProvider.propTypes = {
-    language: PropTypes.string.isRequired,
-    loadTranslationForComponent: PropTypes.func.isRequired,
-    // eslint-disable-next-line react/forbid-prop-types
-    translation: PropTypes.object().isRequired,
-
-  };
   return connect(mapState, mapDispatch)(TranslationProvider);
 };

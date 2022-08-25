@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './ChatWindow.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -174,29 +173,6 @@ class ChatWindow extends Component {
   }
 }
 
-ChatWindow.propTypes = {
-  setNavbarVisibility: PropTypes.func.isRequired,
-  sendMessage: PropTypes.func.isRequired,
-  fetchChatroomFromQuery: PropTypes.func.isRequired,
-  fetchChatroomById: PropTypes.func.isRequired,
-  selectedChatroomId: PropTypes.number.isRequired,
-  selectedChatroomHistory: PropTypes.shape({
-    messages: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      chatroomId: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      author: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        username: PropTypes.string.isRequired,
-        avatarUrl: PropTypes.string.isRequired,
-      }),
-    }),
-  }).isRequired,
-  queryParams: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    chatType: PropTypes.oneOf(['direct', 'chat']).isRequired,
-  }),
-};
 ChatWindow.defaultProps = {
   queryParams: null,
 };

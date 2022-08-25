@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactCropper from 'react-cropper';
 import Button from '../Forms/Button';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -56,7 +55,3 @@ export default class PhotoCropper extends React.Component {
     );
   }
 }
-PhotoCropper.propTypes = {
-  src: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};

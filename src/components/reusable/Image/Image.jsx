@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import fetcher from '../../../utils/fetcher';
 import defaultImage from '../../../assets/defaultAvatar.webp';
 import './Image.scss';
@@ -27,7 +26,7 @@ function Image({
   const getImageFilters = () => {
     if (isLoading) return { filter: 'blur(5px)' };
     if (isNSFW) return { filter: 'blur(20px)' };
-    return '';
+    return { filter: '' };
   };
   return (
     <span data-testid={testId} onClick={onImageClick} className="Image" style={{ cursor: onClick || isNSFW ? 'pointer' : 'initial' }}>
@@ -50,14 +49,6 @@ function Image({
     </span>
   );
 }
-
-Image.propTypes = {
-  url: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  testId: PropTypes.string,
-};
 
 Image.defaultProps = {
   className: '',

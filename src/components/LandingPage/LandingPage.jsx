@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import withTranslation from '../reusable/withTranslation';
 
 import TypedHeading from '../reusable/UIKit/Headings/TypedHeading/TypedHeading';
@@ -30,16 +29,4 @@ function LandingPage({ translation }) {
   );
 }
 
-LandingPage.propTypes = {
-  translation: PropTypes.shape({
-    heading: PropTypes.string.isRequired,
-    typedStrings: PropTypes.arrayOf(PropTypes.string).isRequired,
-    cards: PropTypes.shape({
-      image: PropTypes.string.isRequired,
-      imageAlt: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-    }).isRequired,
-
-  }).isRequired,
-};
 export default withTranslation(LandingPage, 'landing');

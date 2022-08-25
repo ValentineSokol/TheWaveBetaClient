@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import './RichEditor.scss';
@@ -42,16 +41,4 @@ class RichEditor extends React.Component {
     );
   }
 }
-
-RichEditor.propTypes = {
-  className: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
-  onKeyUp: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-};
-RichEditor.defaultProps = {
-  className: '',
-};
 export default RichEditor;

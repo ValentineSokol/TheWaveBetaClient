@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Button.scss';
 import classNames from 'classnames';
 
@@ -29,19 +28,6 @@ function Button({
     </button>
   );
 }
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  color: PropTypes.oneOf(['green']),
-  size: PropTypes.oneOfType(['small', 'medium', 'large']),
-  hover: PropTypes.oneOf(['underline']),
-  clickHandler: PropTypes.func.isRequired,
-  type: PropTypes.string,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  transparent: PropTypes.bool,
-  testId: PropTypes.string,
-};
 
 Button.defaultProps = {
   color: '',
