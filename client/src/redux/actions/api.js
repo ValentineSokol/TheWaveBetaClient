@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import fetcher from '../../utils/fetcher';
-import { createNotification } from '../NotificationSlice/index';
+import { createNotification } from '../NotificationSlice';
 
 export const checkLogin = createAsyncThunk(
   'authenticate',

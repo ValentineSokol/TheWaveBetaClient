@@ -6,7 +6,7 @@ import './Navbar.scss';
 import {
   faHouseUser, faCommentDots, faSignOutAlt, faCog, faDoorOpen, faFeatherAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import withTranslation from '../reusable/withTranslation/index';
+import withTranslation from '../reusable/withTranslation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 

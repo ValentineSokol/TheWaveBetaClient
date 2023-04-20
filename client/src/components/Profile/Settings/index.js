@@ -1,5 +1,5 @@
 import React from 'react';
-import { actions } from '../../../redux/PreferencesSlice/index';
+import { actions } from '../../../redux/PreferencesSlice';
 import { createNotification } from '../../../redux/NotificationSlice';
 import withTranslation from '../../reusable/withTranslation';
 import Heading from '../../reusable/UIKit/Headings/Heading/Heading';

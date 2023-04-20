@@ -1,56 +1,51 @@
-import React from 'react';
-import ReactCropper from 'react-cropper';
+import React, { lazy, Suspense, useState, useRef } from 'react';
 import Button from '../Forms/Button';
 import 'cropperjs/dist/cropper.css';
 
-export default class PhotoCropper extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonDisabled: false,
-    };
-  }
+const PhotoCropper = ({ onSubmit, src }) => {
+  const [disabled, setDisabled] = useState(false);
+  const cropperRef = useRef(null);
 
-  getCroppedImageBlob = () => new Promise((resolve) => {
-    const { cropper } = this.state;
+  const ReactCropper = lazy(() => import('react-cropper'));
+
+  const onCropperInit = (cropper) => { cropperRef.current = cropper; };
+  const getCroppedImageBlob = () => new Promise((resolve) => {
+    const { current: cropper } = cropperRef;
     cropper.getCroppedCanvas({ width: 360, height: 360 }).toBlob((blob) => resolve(blob));
   });
 
-  onSubmit = async () => {
-    const { onSubmit } = this.props;
-    this.setState({ buttonDisabled: true });
-    const croppedImageBlob = await this.getCroppedImageBlob();
+  const onImageSubmit = async () => {
+    setDisabled(true);
+    const croppedImageBlob = await getCroppedImageBlob();
     onSubmit(croppedImageBlob);
-  };
+  }
 
-  onCropperInit = (cropper) => this.setState({ cropper });
-
-  render() {
-    const { src } = this.props;
-    const { buttonDisabled } = this.state;
-    return (
+  return (
       <div className="PhotoCropper">
         {
-                   src
-                   && (
-                   <ReactCropper
-                     onInitialized={this.onCropperInit}
-                     viewMode={2}
-                     src={src}
-                     aspectRatio={1}
-                     guides={false}
-                     background={false}
-                     modal={false}
-                     responsive
-                     data={{
-                       width: 360,
-                       height: 360,
-                     }}
-                   />
-                   )
-               }
-        <Button testId="PhotoCropperSubmit" disabled={!src || buttonDisabled} clickHandler={this.onSubmit}>Upload</Button>
+            src
+            && (
+                <Suspense fallback="Loading">
+                <ReactCropper
+                    onInitialized={onCropperInit}
+                    viewMode={2}
+                    src={src}
+                    aspectRatio={1}
+                    guides={false}
+                    background={false}
+                    modal={false}
+                    responsive
+                    data={{
+                      width: 360,
+                      height: 360,
+                    }}
+                />
+                </Suspense>
+            )
+        }
+        <Button testId="PhotoCropperSubmit" disabled={!src || disabled} clickHandler={onImageSubmit}>Upload</Button>
       </div>
-    );
-  }
-}
+  );
+};
+
+export default PhotoCropper;
