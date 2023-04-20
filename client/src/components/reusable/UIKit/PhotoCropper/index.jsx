@@ -1,12 +1,11 @@
-import React, { lazy, Suspense, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import LazyComponent from'../../LazyComponent';
 import Button from '../Forms/Button';
 import 'cropperjs/dist/cropper.css';
 
 const PhotoCropper = ({ onSubmit, src }) => {
   const [disabled, setDisabled] = useState(false);
   const cropperRef = useRef(null);
-
-  const ReactCropper = lazy(() => import('react-cropper'));
 
   const onCropperInit = (cropper) => { cropperRef.current = cropper; };
   const getCroppedImageBlob = () => new Promise((resolve) => {
@@ -25,8 +24,8 @@ const PhotoCropper = ({ onSubmit, src }) => {
         {
             src
             && (
-                <Suspense fallback="Loading">
-                <ReactCropper
+                <LazyComponent
+                    Component={React.lazy(() => import('react-cropper'))}
                     onInitialized={onCropperInit}
                     viewMode={2}
                     src={src}
@@ -40,7 +39,6 @@ const PhotoCropper = ({ onSubmit, src }) => {
                       height: 360,
                     }}
                 />
-                </Suspense>
             )
         }
         <Button testId="PhotoCropperSubmit" disabled={!src || disabled} clickHandler={onImageSubmit}>Upload</Button>
