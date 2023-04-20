@@ -3,7 +3,7 @@ import './ChatWindow.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { Redirect } from 'react-router';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';

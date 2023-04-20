@@ -3,7 +3,7 @@ import './ChatSelector.scss';
 import classNames from 'classnames';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentMedical } from '@fortawesome/free-solid-svg-icons';
+import { faCommentMedical } from '@fortawesome/free-solid-svg-icons/faCommentMedical';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../reusable/UIKit/Forms/Button';
 import { fetchUserChatrooms } from '../../../redux/actions/api/chat';
